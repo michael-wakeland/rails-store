@@ -1,6 +1,6 @@
 <h1>Products</h1>
-<%= link_to "New product", new_product_path %>
-<div id="products">
+<%= link_to "New product", new_product_path, class: "btn btn-primary" %>
+<div id="products" class="mt-3">
   <% @products.each do |product| %>
     <div>
         <%= link_to product.name, product %>

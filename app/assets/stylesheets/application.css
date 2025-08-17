@@ -17,3 +17,7 @@
    border-radius: 0.25em;
    cursor: pointer;
  }
+
+ .w-fit-content {
+   width: fit-content;
+ }
