@@ -8,16 +8,3 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
-
- .default-btn {
-   background-color: var(--pico-color-fuchsia-450);
-   color: white;
-   border: 1px solid var(--pico-color-fuchsia-450);
-   padding: 0.5em 1em;
-   border-radius: 0.25em;
-   cursor: pointer;
- }
-
- .w-fit-content {
-   width: fit-content;
- }

@@ -31,9 +31,17 @@
       </div>
       <div>
         <%= button_to "Log out", session_path, class: "btn btn-warning", method: :delete if authenticated?  %>
+        <%= link_to "Login", new_session_path, class: "btn btn-primary" unless authenticated? %>
       </div>
     </nav>
     <main class="container">
+      <% flash.each do |key, message| %>
+        <div class="alert alert-<%= key == "notice" ? "success" : "danger" %> alert-dismissible fade show mt-3" role="alert">
+          <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+      
       <%= yield %>
     </main>
 

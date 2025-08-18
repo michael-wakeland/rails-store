@@ -1,6 +1,27 @@
-<h1><%= @product.name %></h1>
-
 <%= link_to "Back", products_path %>
-<%= link_to "Edit", edit_product_path(@product) %>
-<%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+
+<div class="mt-3">
+  <%= render "inventory", product: @product %>
+</div>
+
+<% cache @product do %>
+<div class="d-flex gap-2 mt-3">
+  <%= image_tag @product.featured_image, class: "img-thumbnail w-25" if @product.featured_image.attached? %>
+  <div>
+    <h1><%= @product.name %></h1>
+    <%= @product.description %>
+  </div>
+</div>
+
+
+
+<% end %>
+<hr>
+
+<div class="d-flex mt-3 gap-3">
+  <% if authenticated? %>
+    <%= link_to "Edit", edit_product_path(@product), class: "btn btn-primary" %>
+    <%= button_to "Delete", @product, class: "btn btn-danger", method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+  <% end %>
+</div>
 
